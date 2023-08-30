@@ -18,3 +18,5 @@ a randomização.
 
 Com o tempo vou fazer melhorias no código para transforma-lo no site que eu usava anteriormente,
 ou fazer um aplicativo mobile.
+
+![image](https://github.com/Gostto/LoL-Gerador-de-composicoes-aleatorias/assets/98531503/f4f44801-25fd-4397-9ebc-9e6164783fd1)
