@@ -1,0 +1,1 @@
+# LoL-Gerador-de-composicoes-aleatorias
