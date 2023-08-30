@@ -6,17 +6,15 @@ usavamos um site de comps na internet, porém ele foi desativado.
 Com isso pensei em fazer um com comps personalizadas pela gente e com características únicas,
 além de visualizações de splash e nomes diferentes.
 
-![image](https://github.com/Gostto/LoL-Gerador-de-composicoes-aleatorias/assets/98531503/b993b9c2-c63f-459a-9743-5354098f9789)
-
 Criei esse projeto em c, mas não deu muito certo, um orientação por objeto ficaria bem melhor
 por indicação de um professor, criei variáveis objetos para cada lane com cada campeão
 e fiz template de "nome da comp", "top", "jungle", "mid", "adc" e "sup".
 
+![image](https://github.com/Gostto/LoL-Gerador-de-composicoes-aleatorias/assets/98531503/4bcf50bc-6a7e-464a-b1d9-1d4fd1a03271)
+
 Para fazer com que randomizasse clicando em um botão tive que pedir auxilo do chatgpt, por 
 não conhecer muito a linguaguem, pelo que entendi ela usou o método math.floor para fazer
 a randomização.
-
-![image](https://github.com/Gostto/LoL-Gerador-de-composicoes-aleatorias/assets/98531503/4bcf50bc-6a7e-464a-b1d9-1d4fd1a03271)
 
 É isso.
 
