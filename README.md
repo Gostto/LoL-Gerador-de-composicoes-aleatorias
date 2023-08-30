@@ -10,7 +10,7 @@ Criei esse projeto em c, mas não deu muito certo, um orientação por objeto fi
 por indicação de um professor, criei variáveis objetos para cada lane com cada campeão
 e fiz template de "nome da comp", "top", "jungle", "mid", "adc" e "sup".
 
-![image](https://github.com/Gostto/LoL-Gerador-de-composicoes-aleatorias/assets/98531503/4bcf50bc-6a7e-464a-b1d9-1d4fd1a03271)
+![image](https://github.com/Gostto/LoL-Gerador-de-composicoes-aleatorias/assets/98531503/f1e35774-a4ed-4b95-b378-e746de49ec88)
 
 Para fazer com que randomizasse clicando em um botão tive que pedir auxilo do chatgpt, por 
 não conhecer muito a linguaguem, pelo que entendi ela usou o método math.floor para fazer
