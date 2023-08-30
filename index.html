@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Composition Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+    <container>
+    <div class="allContent">
+    <h1>Composição Aleátoria</h1>
+    <div class="composition">
+        <h2 class="compName" id="compName"></h2>
+        <div class="lane-grid">
+            <img src="icons/icon-top.png" alt="">
+            <img src="icons/icon-jg.png" alt="">
+            <img src="icons/icon-mid.png" alt="">
+            <img src="icons/icon-adc.png" alt="">
+            <img src="icons/icon-sup.png" alt="">
+        </div>
+        <div class="splash-grid">
+            <img id="splashTop" src="src/Teemo_0.jpg" alt="Top Splash Art">
+            <img id="splashJungle" src="src/Teemo_0.jpg" alt="Jungle Splash Art">
+            <img id="splashMid" src="src/Teemo_0.jpg" alt="Mid Splash Art">
+            <img id="splashBottom" src="src/Teemo_0.jpg" alt="Bottom Splash Art">
+            <img id="splashSupport" src="src/Teemo_0.jpg" alt="Support Splash Art">
+        </div>
+    </div>
+    <div class="conditions">
+        <h2>Modificadores:</h2>
+        <p>◾ <span id="condition1"></span></p>
+        <p>◾ <span id="condition2"></span></p>
+    </div>
+    <button class="button" onclick="generateRandomComposition()">🎲</button>
+    </div>
+      </container>
+    <script>
+        var compositions = [
+
+            {name: "COMP DO EDUARDO 🐵",
+             top: "Ksante",
+             jungle: "Viego",
+             mid: "Azir",
+             bottom: "Aphelios",
+             support: "Janna",
+             splashTop: "src/KSante_0.jpg",
+             splashJungle: "src/Viego_0.jpg",
+             splashMid: "src/Azir_0.jpg",
+             splashBottom: "src/Aphelios_0.jpg",
+             splashSupport: "src/Janna_0.jpg"},
+            
+            {name: "COMP DA ALICE 👩‍❤️‍👩",
+             top: "Gnar",
+             jungle: "Poppy",
+             mid: "Neeko",
+             bottom: "Jinx",
+             support: "Lulu",
+             splashTop: "src/Gnar_0.jpg",
+             splashJungle: "src/Poppy_0.jpg",
+             splashMid: "src/Neeko_0.jpg",
+             splashBottom: "src/Jinx_0.jpg",
+             splashSupport: "src/Lulu_0.jpg"},
+
+            {name: "COMP DO ALLAN 🌈",
+             top: "Ksante",
+             jungle: "Zac",
+             mid: "Lissandra",
+             bottom: "Ashe",
+             support: "Sona",
+             splashTop: "src/KSante_0.jpg",
+             splashJungle: "src/Zac_0.jpg",
+             splashMid: "src/Lissandra_0.jpg",
+             splashBottom: "src/Ashe_0.jpg",
+             splashSupport: "src/Sona_0.jpg"},
+
+            {name: "COMP DO ELCIO 🤠",
+             top: "Jayce",
+             jungle: "Lee sin",
+             mid: "Vladimir",
+             bottom: "Ezreal",
+             support: "Yuumi",
+             splashTop: "src/Jayce_0.jpg",
+             splashJungle: "src/LeeSin_0.jpg",
+             splashMid: "src/Vladimir_0.jpg",
+             splashBottom: "src/Ezreal_0.jpg",
+             splashSupport: "src/Yuumi_0.jpg"},
+
+            {name: "COMP DO MARTUS 🤓",
+             top: "Sett",
+             jungle: "Jarvan IV",
+             mid: "Anivia",
+             bottom: "Caitlyn",
+             support: "Leona",
+             splashTop: "src/Sett_0.jpg",
+             splashJungle: "src/JarvanIV_0.jpg",
+             splashMid: "src/Anivia_0.jpg",
+             splashBottom: "src/Caitlyn_0.jpg",
+             splashSupport: "src/Leona_0.jpg"},
+          
+            {name: "APENAS BRUISERS 💪", 
+             top: "Darius",
+             jungle: "Lee Sin",
+             mid: "Garen",
+             bottom: "Sett",
+             support: "Yuumi",
+             splashTop: "src/Darius_0.jpg",
+             splashJungle: "src/LeeSin_0.jpg",
+             splashMid: "src/Garen_0.jpg",
+             splashBottom: "src/Sett_0.jpg",
+             splashSupport: "src/Yuumi_0.jpg"},
+          
+            {name: "DRAX SQUAD 🕵️‍♂",
+             top: "Rengar",
+             jungle: "Evelynn",
+             mid: "Talon",
+             bottom: "Twitch",
+             support: "Pyke",
+             splashTop: "src/Rengar_0.jpg",
+             splashJungle: "src/Evelynn_0.jpg",
+             splashMid: "src/Talon_0.jpg",
+             splashBottom: "src/Twitch_0.jpg",
+             splashSupport: "src/Pyke_0.jpg"},
+            
+            {name: "OS IMORRÍVEIS 🚫💀",
+             top: "Sion",
+             jungle: "Zac",
+             mid: "Anivia",
+             bottom: "Akshan",
+             support: "Zilean",
+             splashTop: "src/Sion_0.jpg",
+             splashJungle: "src/Zac_0.jpg",
+             splashMid: "src/Anivia_0.jpg",
+             splashBottom: "src/Akshan_0.jpg",
+             splashSupport: "src/Zilean_0.jpg"},
+
+            {name: "COMP DA MACONHA 🌿",
+             top: "Teemo",
+             jungle: "Ivern",
+             mid: "Zyra",
+             bottom: "Jinx",
+             support: "Maokai",
+             splashTop: "src/Teemo_0.jpg",
+             splashJungle: "src/Ivern_0.jpg",
+             splashMid: "src/Zyra_0.jpg",
+             splashBottom: "src/Jinx_0.jpg",
+             splashSupport: "src/Maokai_0.jpg"},
+
+            {name: "TRAPPERS 🎙",
+              top: "Teemo",
+              jungle: "Shaco",
+              mid: "Nidalee",
+              bottom: "Jhin",
+              support: "Caitlyn",
+              splashTop: "src/Teemo_0.jpg",
+              splashJungle: "src/Shaco_0.jpg",
+              splashMid: "src/Nidalee_0.jpg",
+              splashBottom: "src/Jhin_0.jpg",
+              splashSupport: "src/Caitlyn_0.jpg"},
+      
+            {name: "CURINHA KAWAII 🥺",
+              top: "Kayle",
+              jungle: "Nidalee",
+              mid: "Seraphine",
+              bottom: "Senna",
+              support: "Soraka",
+              splashTop: "src/Teemo_0.jpg",
+              splashJungle: "src/Shaco_0.jpg",
+              splashMid: "src/Nidalee_0.jpg",
+              splashBottom: "src/Jhin_0.jpg",
+              splashSupport: "src/Caitlyn_0.jpg"},
+          
+            {name: "DUROS COMO PEDRA 💎",
+              top: "Garen",
+              jungle: "Mordekaiser",
+              mid: "Sett",
+              bottom: "Wukong",
+              support: "Braum",
+              splashTop: "src/Garen_0.jpg",
+              splashJungle: "src/Mordekaiser_0.jpg",
+              splashMid: "src/Sett_0.jpg",
+              splashBottom: "src/Wukong_0.png",
+              splashSupport: "src/Braum_0.jpg"},             
+      
+            {name: "MÃOS FOFAS 🤗",
+              top: "Nautilus",
+              jungle: "Skarner",
+              mid: "Pyke",
+              bottom: "Thresh",
+              support: "Blitzcrank",
+              splashTop: "src/Nautilus_0.jpg",
+              splashJungle: "src/Skarner_0.jpg",
+              splashMid: "src/Pyke_0.jpg",
+              splashBottom: "src/Thresh_0.jpg",
+              splashSupport: "src/Blitzcrank_0.jpg"},    
+        
+            {name: "ADC 2023 KKK 🤣",
+              top: "Nocturne",
+              jungle: "Talon",
+              mid: "Zed",
+              bottom: "Rengar",
+              support: "Pyke",
+              splashTop: "src/Nocturne_0.jpg",
+              splashJungle: "src/Talon_0.jpg",
+              splashMid: "src/Zed_0.jpg",
+              splashBottom: "src/Rengar_0.jpg",
+              splashSupport: "src/Pyke_0.jpg"},                 
+            
+            {name: "ESQUIVA-SE SE FOR CAPAZ 🏃‍♂️",
+             top: "Xerath",
+             jungle: "Nidalee",
+             mid: "Vel'koz",
+             bottom: "Ezreal",
+             support: "Lux",
+             splashTop: "src/Xerath_0.jpg",
+             splashJungle: "src/Nidalee_0.jpg",
+             splashMid: "src/Velkoz_0.jpg",
+             splashBottom: "src/Ezreal_0.jpg",
+             splashSupport: "src/Lux_0.jpg"},               
+          
+            {name: "DEATH CIRCLES ⭕",
+             top: "Chogath",
+             jungle: "Gangplank",
+             mid: "Miss Fortune",
+             bottom: "Nasus",
+             support: "Morgana",
+             splashTop: "src/Chogath_0.jpg",
+             splashJungle: "src/Gangplank_0.jpg",
+             splashMid: "src/MissFortune_0.jpg",
+             splashBottom: "src/Nasus_0.jpg",
+             splashSupport: "src/Morgana_0.jpg"},
+          
+            {name: "THE DUNK SQUAD 🏀",
+             top: "Darius",
+             jungle: "Khazix",
+             mid: "Jax",
+             bottom: "Tristana",
+             support: "Jarvan",
+             splashTop: "src/Darius_0.jpg",
+             splashJungle: "src/Khazix_0.jpg",
+             splashMid: "src/Jax_0.jpg",
+             splashBottom: "src/Tristana_0.jpg",
+             splashSupport: "src/JarvanIV_0.jpg"},
+            
+            {name: "BRAZILIAN SHOOTERS 🔫",
+             top: "Draven",
+             jungle: "Ezreal",
+             mid: "Jinx",
+             bottom: "Jhin",
+             support: "Ashe",
+             splashTop: "src/Draven_0.jpg",
+             splashJungle: "src/Ezreal_0.jpg",
+             splashMid: "src/Jinx_0.jpg",
+             splashBottom: "src/Jhin_0.jpg",
+             splashSupport: "src/Ashe_0.jpg"},
+          
+            {name: "COMP DO VENENINHO 💉",
+             top: "Singed",
+             jungle: "Twitch",
+             mid: "Cassiopeia",
+             bottom: "Teemo",
+             support: "Brand",
+             splashTop: "src/Singed_0.jpg",
+             splashJungle: "src/Twitch_0.jpg",
+             splashMid: "src/Cassiopeia_0.jpg",
+             splashBottom: "src/Teemo_0.jpg",
+             splashSupport: "src/Brand_0.jpg"},
+        
+            {name: "EXÉRCITO DE 100 HOMENS ⚔",
+             top: "Yorick",
+             jungle: "Ivern",
+             mid: "Belveth",
+             bottom: "Malzahar", 
+             support: "Annie",
+             splashTop: "src/Yorick_0.jpg",
+             splashJungle: "src/Ivern_0.jpg",
+             splashMid: "src/BelVeth_0.jpg",
+             splashBottom: "src/Malzahar_0.jpg",
+             splashSupport: "src/Annie_0.jpg"},
+          
+            {name: "OS INSCALÁVEIS 🧗‍♀️",
+             top: "Kayle",
+             jungle: "Zac",
+             mid: "Aurelion",
+             bottom: "Vayne",
+             support: "Senna",
+             splashTop: "src/Kayle_0.jpg",
+             splashJungle: "src/Zac_0.jpg",
+             splashMid: "src/AurelionSol_0.jpg",
+             splashBottom: "src/Vayne_0.jpg",
+             splashSupport: "src/Senna_0.jpg"},
+          
+            {name: "💥 WOOMBO COMBO ALUCINANTE 💥",
+             top: "Malphite",
+             jungle: "Diana",
+             mid: "Yasuo",
+             bottom: "Kalista",
+             support: "Alistar",
+             splashTop: "src/Malphite_0.jpg",
+             splashJungle: "src/Diana_0.jpg",
+             splashMid: "src/Yasuo_0.jpg",
+             splashBottom: "src/Kalista_0.jpg",
+             splashSupport: "src/Alistar_0.jpg"},
+          
+            {name: "COMP DO MONTANHA ⛰",
+             top: "Malphite",
+             jungle: "Jarvan IV",
+             mid: "Orianna",
+             bottom: "Twitch",
+             support: "Leona",
+             splashTop: "src/Malphite_0.jpg",
+             splashJungle: "src/JarvanIV_0.jpg",
+             splashMid: "src/Orianna_0.jpg",
+             splashBottom: "src/Twitch_0.jpg",
+             splashSupport: "src/Leona_0.jpg"},             
+          
+            {name: "COMP DO VAZIO 🟣",
+             top: "Cho'gath",
+             jungle: "Khazix",
+             mid: "Velkoz",
+             bottom: "Kaisa",
+             support: "Kogmaw",
+             splashTop: "src/Chogath_0.jpg",
+             splashJungle: "src/Khazix_0.jpg",
+             splashMid: "src/Velkoz_0.jpg",
+             splashBottom: "src/Kaisa_0.jpg",
+             splashSupport: "src/KogMaw_0.jpg"},             
+          
+            {name: "ARCANE 🧁",
+             top: "Jayce",
+             jungle: "Vi",
+             mid: "Ekko",
+             bottom: "Caitlyn",
+             support: "Heimerdinger",
+             splashTop: "src/Jayce_0.jpg",
+             splashJungle: "src/Vi_0.jpg",
+             splashMid: "src/Ekko_0.jpg",
+             splashBottom: "src/Caitlyn_0.jpg",
+             splashSupport: "src/Heimerdinger_0.jpg"},          
+          
+            {name: "COMP DOS CALVOS 👴",
+             top: "Singed",
+             jungle: "Gragas",
+             mid: "Sion",
+             bottom: "Urgot",
+             support: "Braum",
+             splashTop: "src/Singed_0.jpg",
+             splashJungle: "src/Gragas_0.jpg",
+             splashMid: "src/Sion_0.jpg",
+             splashBottom: "src/Urgot_0.jpg",
+             splashSupport: "src/Braum_0.jpg"},
+
+            {name: "COMP DOS CABEÇUDINHOS 🥺",
+             top: "Teemo",
+             jungle: "Poppy",
+             mid: "Ziggs",
+             bottom: "Tristana",
+             support: "Lulu",
+             splashTop: "src/Teemo_0.jpg",
+             splashJungle: "src/Poppy_0.jpg",
+             splashMid: "src/Ziggs_0.jpg",
+             splashBottom: "src/Tristana_0.jpg",
+             splashSupport: "src/Lulu_0.jpg"},
+
+            {name: "FREIO JORGE 🧊",
+             top: "Ornn",
+             jungle: "Sejuani",
+             mid: "Lissandra",
+             bottom: "Ashe",
+             support: "Anivia",
+             splashTop: "src/Ornn_0.jpg",
+             splashJungle: "src/Sejuani_0.jpg",
+             splashMid: "src/Lissandra_0.jpg",
+             splashBottom: "src/Ashe_0.jpg",
+             splashSupport: "src/Anivia_0.jpg"},
+
+            {name: "ÁGUAS DE BUCETINHA 💦",
+             top: "Illaoi",
+             jungle: "Graves",
+             mid: "Twisted Fate",
+             bottom: "Miss Fortune",
+             support: "Nautilus",
+             splashTop: "src/Illaoi_0.jpg",
+             splashJungle: "src/Graves_0.jpg",
+             splashMid: "src/TwistedFate_0.jpg",
+             splashBottom: "src/MissFortune_0.jpg",
+             splashSupport: "src/Nautilus_0.jpg"},
+            
+            {name: "BOLSONARO É NORTE 💚💛",
+             top: "Garen",
+             jungle: "Jarvan IV",
+             mid: "Sylas",
+             bottom: "Lucian",
+             support: "Senna",
+             splashTop: "src/Garen_0.jpg",
+             splashJungle: "src/JarvanIV_0.jpg",
+             splashMid: "src/Sylas_0.jpg",
+             splashBottom: "src/Lucian_0.jpg",
+             splashSupport: "src/Senna_0.jpg"},
+
+            {name: "GLORY OF NOXUS 🩸",
+             top: "Darius",
+             jungle: "Rell",
+             mid: "Leblanc",
+             bottom: "Samira",
+             support: "Swain",
+             splashTop: "src/Darius_0.jpg",
+             splashJungle: "src/Rell_0.jpg",
+             splashMid: "src/Leblanc_0.jpg",
+             splashBottom: "src/Samira_0.jpg",
+             splashSupport: "src/Swain_0.jpg"},
+
+            {name: "IONIA PRECISA NÓS 🍃",
+             top: "Shen",
+             jungle: "Kayn",
+             mid: "Akali",
+             bottom: "Jhin",
+             support: "Karma",
+             splashTop: "src/Shen_0.jpg",
+             splashJungle: "src/Kayn_0.jpg",
+             splashMid: "src/Akali_0.jpg",
+             splashBottom: "src/Jhin_0.jpg",
+             splashSupport: "src/Karma_0.jpg"},
+
+            {name: "IQUISTAU 🐱",
+             top: "Neeko",
+             jungle: "Nidalee",
+             mid: "Qiyana",
+             bottom: "Rengar",
+             support: "Zyra",
+             splashTop: "src/Neeko_0.jpg",
+             splashJungle: "src/Nidalee_0.jpg",
+             splashMid: "src/Qiyana_0.jpg",
+             splashBottom: "src/Rengar_0.jpg",
+             splashSupport: "src/Zyra_0.jpg"},
+
+            {name: "ILHA DO MUNDINHO ☠",
+             top: "Yorick",
+             jungle: "Viego",
+             mid: "Vex",
+             bottom: "Kalista",
+             support: "Thresh",
+             splashTop: "src/Yorick_0.jpg",
+             splashJungle: "src/Viego_0.jpg",
+             splashMid: "src/Vex_0.jpg",
+             splashBottom: "src/Kalista_0.jpg",
+             splashSupport: "src/Thresh_0.jpg"},
+
+            {name: "O IMPERADOR RETORNOU ⌛",
+             top: "Nasus",
+             jungle: "Rammus",
+             mid: "Azir",
+             bottom: "Sivir",
+             support: "Amumu",
+             splashTop: "src/Nasus_0.jpg",
+             splashJungle: "src/Rammus_0.jpg",
+             splashMid: "src/Azir_0.jpg",
+             splashBottom: "src/Sivir_0.jpg",
+             splashSupport: "src/Amumu_0.jpg"},
+
+            {name: "THE HILLS 🌌",
+             top: "Pantheon",
+             jungle: "Diana",
+             mid: "Zoe",
+             bottom: "Aphelios",
+             support: "Leona",
+             splashTop: "src/Pantheon_0.jpg",
+             splashJungle: "src/Diana_0.jpg",
+             splashMid: "src/Zoe_0.jpg",
+             splashBottom: "src/Aphelios_0.jpg",
+             splashSupport: "src/Leona_0.jpg"},
+
+            {name: "IOOOU ZAUNITAS 🔋",
+             top: "Urgot",
+             jungle: "Zac",
+             mid: "Ekko",
+             bottom: "Jinx",
+             support: "Blitzcrank",
+             splashTop: "src/Urgot_0.jpg",
+             splashJungle: "src/Zac_0.jpg",
+             splashMid: "src/Ekko_0.jpg",
+             splashBottom: "src/Jinx_0.jpg",
+             splashSupport: "src/Blitzcrank_0.jpg"},
+
+            {name: "ELEMENTOS 💦🔥",
+             top: "Kennen",
+             jungle: "Shyvana",
+             mid: "Qiyana",
+             bottom: "Ashe",
+             support: "Nami",
+             splashTop: "src/Kennen_0.jpg",
+             splashJungle: "src/Shyvana_0.jpg",
+             splashMid: "src/Qiyana_0.jpg",
+             splashBottom: "src/Ashe_0.jpg",
+             splashSupport: "src/Nami_0.jpg"},
+
+            {name: "SUMMER VACATION 👦",
+             top: "Zac",
+             jungle: "Nunu & Willump",
+             mid: "Annie",
+             bottom: "Twitch",
+             support: "Milio",
+             splashTop: "src/Kennen_0.jpg",
+             splashJungle: "src/Zac_0.jpg",
+             splashMid: "src/Ekko_0.jpg",
+             splashBottom: "src/Jinx_0.jpg",
+             splashSupport: "src/Blitzcrank_0.jpg"},
+          
+        ];
+
+        var conditionsPart1 = [
+        "Você irá maximizar a skill do Q",
+        "Você irá maximizar a skill do W",
+        "Você irá maximizar a skill do E",
+        "Você só pode comprar itens inteiros sem componentes",
+        "As spells do time serão Teleporte e Fantasma",
+        "As spells do time serão Barreira e Curar",
+        "As spells do time serão Flash e Purificar",
+        "As spells do time serão Golpear e Clareza",
+        "As spells do time serão Teleporte e Barreira",
+        "As spells do time serão Exaustão e Incendiar",
+        "As spells do time serão Fantasma e Curar",
+        "Se o seu time decidir lutar contra um inimigo, terá que continuar lutando até que você ou a pessoa com quem está lutando morra. Nunca recue!",
+        "Você só pode comprar itens que sejam azuis",
+        "Todos devem pegar a runa Demolir, da árvore de Determinação",
+        "O time não poderá pegar as spells Flash ou Ghost",
+        "Apenas uma pessoa do seu time poderá wardar",
+          ];
+      
+        var conditionsPart2 = [
+        "Seu time não poderá melhorar a bota até conseguir ter 10 kills ou 20 assists",
+        "Você só poderá usar sua segunda spell",
+        "A árvore de runas primária do seu time precisará ser Precisão",
+        "Toda vez que o dragão nascer o time DEVERÁ lutar por ele",
+        "A única bota que poderá ser comprada será as Botas de Mobilidade",
+        "Todo mundo do seu time deverá comprar Força da Trindade de 1° item",
+        "Todo mundo do seu time deverá comprar Eclipse de 1° item",
+        "Todo mundo do seu time deverá comprar Lâmina de Guinsoo de 1° item",
+        "Todo mundo do seu time deverá comprar Hemodrenário de 1° item",
+        "Todo mundo do seu time deverá comprar Quebrapassos de 1° item",
+        "Todo mundo do seu time deverá comprar Força do Vendaval de 1° item",
+        "Todo mundo do seu time deverá comprar Gume do Infinito de 1° item",
+        "Todo mundo do seu time deverá comprar Coroa da Rainha de 1° item",
+        "Todo mundo do seu time deverá comprar Draktharr de 1° item",
+        "Todo mundo do seu time deverá comprar Ecos de Helia de 1° item"
+        ];
+      
+
+
+        function generateRandomComposition() {
+            var compIndex = Math.floor(Math.random() * compositions.length);
+            var randomComp = compositions[compIndex];
+
+            document.getElementById("compName").textContent = randomComp.name;
+            document.getElementById("splashTop").src = randomComp.splashTop;
+            document.getElementById("splashJungle").src = randomComp.splashJungle;
+            document.getElementById("splashMid").src = randomComp.splashMid;
+            document.getElementById("splashBottom").src = randomComp.splashBottom;
+            document.getElementById("splashSupport").src = randomComp.splashSupport;
+
+            var conditionIndex1 = Math.floor(Math.random() * conditionsPart1.length);
+            var conditionIndex2 = Math.floor(Math.random() * conditionsPart2.length);
+
+            document.getElementById("condition1").textContent = conditionsPart1[conditionIndex1];
+            document.getElementById("condition2").textContent = conditionsPart2[conditionIndex2];
+        }
+            if (randomComp.specialCondition) {
+                document.getElementById("specialCondition").textContent = randomComp.specialCondition;
+            } else {
+                document.getElementById("specialCondition").textContent = "";
+            }
+    </script>
+</body>
+</html>
